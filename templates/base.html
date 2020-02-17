@@ -68,9 +68,9 @@
     </button>
     <a class="navbar-brand" href="{% if user.is_authenticated %}{% url 'core:report' %}{% else %}{% url 'core:home' %}{% endif %}">
     {% if user.is_authenticated %}
-      <label class="title">CONCIERGE FITNESS</label>
+      <label class="title text-color">CONCIERGE FITNESS</label>
     {% else %}
-      <label class="title">CONCIERGE FITNESS</label>
+      <label class="title text-color">CONCIERGE FITNESS</label>
     {% endif %}
     </a>
   </div>
