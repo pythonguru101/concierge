@@ -1,9 +1,5 @@
-# API document
-## /swagger/
+# CONCIERGE FITNESS
 
 # Admin Dashboard
 ## /admin/
-
-# REST Framework
-## /api/v1/
 
