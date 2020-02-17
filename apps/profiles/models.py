@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractUser
 from django.utils.html import mark_safe
 from django.core.files.storage import default_storage
+from phonenumber_field.modelfields import PhoneNumberField
 
 import django
 
@@ -13,11 +14,11 @@ class User(AbstractUser):
     username = models.CharField(_('User name'), max_length=255, null=True, blank=True, unique=True)
     first_name = models.CharField(_('First Name'), max_length=255, null=True, blank=True)
     last_name = models.CharField(_('Last Name'), max_length=255, null=True, blank=True)
-    phone_number = models.CharField(_('Phone Number'), max_length=255, null=True, blank=True)
-    email = models.CharField(_('Email'), max_length=255, null=True, blank=True)
-    twitter = models.CharField(_('Twitter'), max_length=255, null=True, blank=True)
-    instagram = models.CharField(_('Instagram'), max_length=255, null=True, blank=True)
-    facebook = models.CharField(_('Facebook'), max_length=255, null=True, blank=True)
+    phone_number = PhoneNumberField(_('Phone Number'), null=True, blank=True)
+    email = models.EmailField(_('Email'), max_length=255, null=True, blank=True)
+    twitter = models.URLField(_('Twitter'), max_length=255, null=True, blank=True)
+    instagram = models.URLField(_('Instagram'), max_length=255, null=True, blank=True)
+    facebook = models.URLField(_('Facebook'), max_length=255, null=True, blank=True)
 
     @property
     def photo_url(self):
