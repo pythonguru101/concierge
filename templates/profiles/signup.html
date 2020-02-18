@@ -20,16 +20,9 @@
           {% endif %}
 
           <form method="post" enctype="multipart/form-data">{% csrf_token %}
-            <!-- photo -->
-            <div class="form-group">
-              <label for="{{ form.photo.id_for_label }}" class="text-color">{{ form.photo.label|safe }}
-                {% if form.photo.field.required %}<span class="required" aria-required="true"> * </span>{% endif %}
-              </label>
-              {{ form.photo }}
-            </div>
 
             <!-- username -->
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
               <label for="{{ form.username.id_for_label }}" class="text-color">{{ form.username.label|safe }}
                 {% if form.username.field.required %}<span class="required text-color" aria-required="true"> * </span>{% endif %}
               </label>

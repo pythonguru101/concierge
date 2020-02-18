@@ -16,7 +16,7 @@ class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = User
         fields = (
-            'photo', 'username', 'first_name', 'last_name', 'phone_number', 'email', 'twitter', 'instagram', 'facebook'
+            'username', 'first_name', 'last_name', 'phone_number', 'email', 'twitter', 'instagram', 'facebook'
         )
 
     def __init__(self, *args, **kwargs):

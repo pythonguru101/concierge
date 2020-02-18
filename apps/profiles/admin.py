@@ -13,12 +13,12 @@ class UserAdmin(BaseUserAdmin):
     ]
     fieldsets = (
         (None,
-         {'fields': ('username', 'phone_number', 'email', 'password', 'photo', 'image_tag', 'twitter', 'instagram', 'facebook')}),
+         {'fields': ('username', 'phone_number', 'email', 'password', 'twitter', 'instagram', 'facebook')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
 
-    readonly_fields = ('image_tag',)
+    # readonly_fields = ('image_tag',)
 
     list_display = ("username", "first_name", "last_name", "phone_number", "email", "twitter", "instagram", "facebook")
     actions = ["export_as_csv"]
@@ -32,12 +32,12 @@ class UserAdmin(BaseUserAdmin):
         writer = csv.writer(response)
 
         # writer.writerow(field_names)
-        writer.writerow(["Date Joined", "User", "First Name", "Last Name", "Phone Number", "Email", "Twitter", "Instagram", "Facebook"])
+        writer.writerow(["Date Joined", "First Name", "Last Name", "Phone Number", "Email", "Twitter", "Instagram", "Facebook"])
         for obj in queryset:
             # row = writer.writerow([getattr(obj, field) for field in field_names])
             line = []
             for field in field_names:
-                if field == "date_joined" or field == "username" or field == "first_name" or field == "last_name" or \
+                if field == "date_joined" or field == "first_name" or field == "last_name" or \
                                 field == "phone_number" or field == "email" or field == "twitter" or \
                                 field == "instagram" or field == "facebook":
                     line.append(getattr(obj, field))

@@ -31,8 +31,6 @@ INSTALLED_APPS = [
     # inner apps
     'core',
     'profiles',
-
-    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

@@ -49,6 +49,11 @@ $(document).ready(function () {
         $(".update-form-wrapper").hide();
     });
 
+    $("#id_first_name").on("change", function () {
+        var username = $("#id_first_name").val();
+        $("#id_username").val(username);
+    });
+
 });
 
 // club chart color settings
